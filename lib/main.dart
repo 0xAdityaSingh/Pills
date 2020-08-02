@@ -20,11 +20,13 @@ import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pills/contactData.dart';
 import 'package:pills/model/contact.dart';
-import 'package:pills/pages/AddContactPage.dart';
+// import 'package:pills/pages/AddContactPage.dart';
 import 'package:pills/pages/add_event_page.dart';
 import 'package:pills/pages/contactList.dart';
 import 'package:pills/pages/delay.dart';
 import 'package:provider/provider.dart';
+
+import 'pages/AddContactPage.dart';
 
 void main() {
   Hive.registerAdapter(ContactAdapter());

@@ -12,11 +12,17 @@ class Contact extends HiveObject {
   @HiveField(2)
   final String time;
   @HiveField(3)
-  final Color color;
+  final String color;
+  @HiveField(4)
+  final String maincolor;
+  @HiveField(5)
+  final String maed;
 
   Contact(
       {@required this.name,
       @required this.dose,
       @required this.time,
-      this.color});
+      this.color,
+      this.maincolor,
+      this.maed});
 }

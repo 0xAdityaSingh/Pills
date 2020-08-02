@@ -19,9 +19,34 @@ class ContactData extends ChangeNotifier {
     notifyListeners();
   }
 
+  void getContactsmaed(maed) async {
+    var box = await Hive.openBox<Contact>(_boxName);
+    int len = box.length;
+    for (int i = 0; i < len; i++) {
+      if (box.get(i).maed == "Morning") _contact.add(box.get(i));
+      if (box.get(i).maed == "Evening") _contact.add(box.get(i));
+      if (box.get(i).maed == "Afternoon") _contact.add(box.get(i));
+      if (box.get(i).maed == "Night") _contact.add(box.get(i));
+    }
+
+    notifyListeners();
+  }
+
   Contact getContact(index) {
     return _contact[index];
   }
+
+  // Contact getContactAfternoon(index) {
+  //   if (_contact[index].maed == "Afternoon") return _contact[index];
+  // }
+
+  // Contact getContactEvening(index) {
+  //   if (_contact[index].maed == "Evening") return _contact[index];
+  // }
+
+  // Contact getContactNight(index) {
+  //   if (_contact[index].maed == "Night") return _contact[index];
+  // }
 
   void addContact(Contact contact) async {
     var box = await Hive.openBox<Contact>(_boxName);

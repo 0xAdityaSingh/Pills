@@ -11,10 +11,18 @@ class ContactListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Provider.of<ContactData>(context, listen: false).getContacts();
+    // Provider.of<ContactData>(context, listen: false).getContactsmaed("Morning");
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        // leading: IconButton(
+        //   icon: Icon(
+        //     Icons.person,
+        //     color: Colors.black,
+        //   ),
+        //   onPressed: () {},
+        // ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
@@ -54,14 +62,14 @@ class ContactListPage extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                buildPadding("MY MEDECINE"),
+                buildPadding("Medecine"),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 10, 20, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 2, 0),
                   child: IconButton(
                     icon: Icon(
-                      Icons.add,
+                      Icons.cloud,
                       size: 30,
-                      color: Colors.pink,
+                      color: Colors.blue,
                     ),
                     onPressed: () {
                       showDialog(
@@ -69,7 +77,9 @@ class ContactListPage extends StatelessWidget {
                           context: context,
                           builder: (BuildContext context) {
                             return Dialog(
-                                child: AddEventPage(),
+                                child: AddEventPage(
+                                  text: "Morning",
+                                ),
                                 shape: RoundedRectangleBorder(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(12))));
@@ -77,14 +87,90 @@ class ContactListPage extends StatelessWidget {
                       // _modalBottomSheetMenu();
                     },
                   ),
-                )
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 2, 0),
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.wb_sunny,
+                      size: 30,
+                      color: Colors.orangeAccent,
+                    ),
+                    onPressed: () {
+                      showDialog(
+                          barrierDismissible: false,
+                          context: context,
+                          builder: (BuildContext context) {
+                            return Dialog(
+                                child: AddEventPage(
+                                  text: "Afternoon",
+                                ),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(12))));
+                          });
+                      // _modalBottomSheetMenu();
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 2, 0),
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.wb_sunny,
+                      size: 30,
+                      color: Colors.orange,
+                    ),
+                    onPressed: () {
+                      showDialog(
+                          barrierDismissible: false,
+                          context: context,
+                          builder: (BuildContext context) {
+                            return Dialog(
+                                child: AddEventPage(
+                                  text: "Evening",
+                                ),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(12))));
+                          });
+                      // _modalBottomSheetMenu();
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.panorama_fish_eye,
+                      size: 30,
+                      color: Colors.grey,
+                    ),
+                    onPressed: () {
+                      showDialog(
+                          barrierDismissible: false,
+                          context: context,
+                          builder: (BuildContext context) {
+                            return Dialog(
+                                child: AddEventPage(
+                                  text: "Night",
+                                ),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(12))));
+                          });
+                      // _modalBottomSheetMenu();
+                    },
+                  ),
+                ),
               ],
             ),
             Expanded(
               child: Container(
-                child: ContactList(),
+                child: ContactList(maed: "Morning"),
               ),
             ),
+
             // Row(
             //   children: <Widget>[
             //     buildPadding("AFTERNOON"),

@@ -20,14 +20,16 @@ class ContactAdapter extends TypeAdapter<Contact> {
       name: fields[0] as String,
       dose: fields[1] as String,
       time: fields[2] as String,
-      color: fields[3] as Color,
+      color: fields[3] as String,
+      maincolor: fields[4] as String,
+      maed: fields[5] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Contact obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
@@ -35,7 +37,11 @@ class ContactAdapter extends TypeAdapter<Contact> {
       ..writeByte(2)
       ..write(obj.time)
       ..writeByte(3)
-      ..write(obj.color);
+      ..write(obj.color)
+      ..writeByte(4)
+      ..write(obj.maincolor)
+      ..writeByte(5)
+      ..write(obj.maed);
   }
 
   @override
